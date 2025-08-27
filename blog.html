@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+    <link rel="manifest" href="images/site.webmanifest" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - SyntaxMaestro</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Blog specific styles */
+        .blog-hero {
+            background: var(--gradient-1);
+            padding: 8rem 0 4rem;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="grad1" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:%23ffffff;stop-opacity:0.1" /><stop offset="100%" style="stop-color:%23ffffff;stop-opacity:0" /></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23grad1)" opacity="0.5"><animate attributeName="r" values="100;150;100" dur="4s" repeatCount="indefinite"/></circle><circle cx="800" cy="300" r="80" fill="url(%23grad1)" opacity="0.3"><animate attributeName="r" values="80;120;80" dur="6s" repeatCount="indefinite"/></circle></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .blog-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .blog-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .blog-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .blog-container {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .blog-sidebar {
+            background: var(--light-color);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            position: sticky;
+            top: 100px;
+        }
+
+        .blog-post {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(37, 99, 235, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .blog-post:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(37, 99, 235, 0.15);
+        }
+
+        .blog-post-image {
+            width: 100%;
+            height: 200px;
+            background: var(--gradient-2);
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-post-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+        }
+
+        .blog-post-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .blog-post-category {
+            background: var(--gradient-3);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .blog-post-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+            text-decoration: none;
+        }
+
+        .blog-post-title:hover {
+            color: var(--primary-color);
+        }
+
+        .blog-post-excerpt {
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-post-author {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .author-avatar {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .author-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .author-name {
+            font-weight: 600;
+            color: var(--dark-color);
+            font-size: 0.9rem;
+        }
+
+        .author-title {
+            color: #64748b;
+            font-size: 0.8rem;
+        }
+
+        .sidebar-section {
+            margin-bottom: 2rem;
+        }
+
+        .sidebar-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+
+        .category-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .category-item {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(37, 99, 235, 0.1);
+        }
+
+        .category-item:last-child {
+            border-bottom: none;
+        }
+
+        .category-link {
+            color: #64748b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .category-link:hover {
+            color: var(--primary-color);
+        }
+
+        .recent-post {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(37, 99, 235, 0.1);
+        }
+
+        .recent-post:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .recent-post-image {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .recent-post-content {
+            flex: 1;
+        }
+
+        .recent-post-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--dark-color);
+            margin-bottom: 0.25rem;
+            text-decoration: none;
+        }
+
+        .recent-post-title:hover {
+            color: var(--primary-color);
+        }
+
+        .recent-post-date {
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+
+        .search-box {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid rgba(37, 99, 235, 0.1);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            background: var(--gradient-2);
+            border: none;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .search-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .pagination-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 3rem;
+        }
+
+        .pagination {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .page-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: white;
+            border: 2px solid rgba(37, 99, 235, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .page-link:hover,
+        .page-link.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .blog-title {
+                font-size: 2rem;
+            }
+            
+            .blog-sidebar {
+                position: static;
+                margin-top: 2rem;
+            }
+            
+            .blog-post {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="images/dark-logo.png" alt="dark-logo" style="width: 50px; height: 50px; margin-right: 10px;">
+            SyntaxMaestro
+        </a>            
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="the_maestro_CV.html">The Maestro</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Hero Section -->
+    <section class="blog-hero">
+        <div class="container">
+            <div class="blog-hero-content">
+                <h1 class="blog-title animate-on-scroll">Developer Insights</h1>
+                <p class="blog-subtitle animate-on-scroll">Stay updated with the latest in programming, development tools, and industry trends</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Container -->
+    <section class="blog-container">
+        <div class="container">
+            <div class="row">
+                <!-- Main Blog Content -->
+                <div class="col-lg-8">
+                    <!-- Blog Post 1 -->
+                    <article class="blog-post animate-on-scroll">
+                        <div class="blog-post-image">
+                            <i class="fab fa-react"></i>
+                        </div>
+                        <div class="blog-post-meta">
+                            <span class="blog-post-category">Frontend</span>
+                            <span><i class="fas fa-calendar-alt"></i> January 15, 2025</span>
+                            <span><i class="fas fa-clock"></i> 8 min read</span>
+                        </div>
+                        <h2><a href="#" class="blog-post-title">Mastering React Hooks: A Complete Guide to useEffect and useState</a></h2>
+                        <p class="blog-post-excerpt">
+                            React Hooks have revolutionized how we write React components. In this comprehensive guide, we'll dive deep into the most commonly used hooks - useState and useEffect - and explore advanced patterns that will make your React code more efficient and maintainable.
+                        </p>
+                        <div class="blog-post-author">
+                            <div class="author-avatar">MJ</div>
+                            <div class="author-info">
+                                <div class="author-name">Maria Johnson</div>
+                                <div class="author-title">Senior Frontend Developer</div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 2 -->
+                    <article class="blog-post animate-on-scroll">
+                        <div class="blog-post-image">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <div class="blog-post-meta">
+                            <span class="blog-post-category">Backend</span>
+                            <span><i class="fas fa-calendar-alt"></i> January 12, 2025</span>
+                            <span><i class="fas fa-clock"></i> 12 min read</span>
+                        </div>
+                        <h2><a href="#" class="blog-post-title">Building Scalable APIs with Python and FastAPI</a></h2>
+                        <p class="blog-post-excerpt">
+                            FastAPI is quickly becoming the go-to framework for building modern Python APIs. Learn how to create high-performance, scalable APIs with automatic documentation, type hints, and async support that will handle millions of requests.
+                        </p>
+                        <div class="blog-post-author">
+                            <div class="author-avatar">DC</div>
+                            <div class="author-info">
+                                <div class="author-name">David Chen</div>
+                                <div class="author-title">Backend Architect</div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 3 -->
+                    <article class="blog-post animate-on-scroll">
+                        <div class="blog-post-image">
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                        <div class="blog-post-meta">
+                            <span class="blog-post-category">DevOps</span>
+                            <span><i class="fas fa-calendar-alt"></i> January 10, 2025</span>
+                            <span><i class="fas fa-clock"></i> 6 min read</span>
+                        </div>
+                        <h2><a href="#" class="blog-post-title">Docker Best Practices for Development Teams</a></h2>
+                        <p class="blog-post-excerpt">
+                            Containerization has become essential for modern development workflows. Discover the best practices for using Docker in your development process, from writing efficient Dockerfiles to managing multi-container applications with Docker Compose.
+                        </p>
+                        <div class="blog-post-author">
+                            <div class="author-avatar">AS</div>
+                            <div class="author-info">
+                                <div class="author-name">Alex Smith</div>
+                                <div class="author-title">Lead Developer & Founder</div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 4 -->
+                    <article class="blog-post animate-on-scroll">
+                        <div class="blog-post-image">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div class="blog-post-meta">
+                            <span class="blog-post-category">Database</span>
+                            <span><i class="fas fa-calendar-alt"></i> January 8, 2025</span>
+                            <span><i class="fas fa-clock"></i> 10 min read</span>
+                        </div>
+                        <h2><a href="#" class="blog-post-title">Database Optimization Techniques for High-Performance Applications</a></h2>
+                        <p class="blog-post-excerpt">
+                            Database performance can make or break your application. Learn advanced optimization techniques, indexing strategies, and query optimization methods that will dramatically improve your database performance and user experience.
+                        </p>
+                        <div class="blog-post-author">
+                            <div class="author-avatar">DC</div>
+                            <div class="author-info">
+                                <div class="author-name">David Chen</div>
+                                <div class="author-title">Backend Architect</div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 5 -->
+                    <article class="blog-post animate-on-scroll">
+                        <div class="blog-post-image">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="blog-post-meta">
+                            <span class="blog-post-category">Mobile</span>
+                            <span><i class="fas fa-calendar-alt"></i> January 5, 2025</span>
+                            <span><i class="fas fa-clock"></i> 7 min read</span>
+                        </div>
+                        <h2><a href="#" class="blog-post-title">Cross-Platform Development with React Native in 2025</a></h2>
+                        <p class="blog-post-excerpt">
+                            React Native continues to evolve with new features and improvements. Explore the latest developments in React Native, including the new architecture, performance improvements, and best practices for building cross-platform mobile apps.
+                        </p>
+                        <div class="blog-post-author">
+                            <div class="author-avatar">MJ</div>
+                            <div class="author-info">
+                                <div class="author-name">Maria Johnson</div>
+                                <div class="author-title">Senior Frontend Developer</div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Pagination -->
+                    <div class="pagination-container">
+                        <div class="pagination">
+                            <a href="#" class="page-link"><i class="fas fa-chevron-left"></i></a>
+                            <a href="#" class="page-link active">1</a>
+                            <a href="#" class="page-link">2</a>
+                            <a href="#" class="page-link">3</a>
+                            <a href="#" class="page-link">4</a>
+                            <a href="#" class="page-link"><i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="col-lg-4">
+                    <div class="blog-sidebar">
+                        <!-- Search -->
+                        <div class="sidebar-section">
+                            <h3 class="sidebar-title">Search</h3>
+                            <div class="search-box">
+                                <input type="text" class="search-input" placeholder="Search articles...">
+                                <button class="search-btn">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Categories -->
+                        <div class="sidebar-section">
+                            <h3 class="sidebar-title">Categories</h3>
+                            <ul class="category-list">
+                                <li class="category-item">
+                                    <a href="#" class="category-link">Frontend Development</a>
+                                </li>
+                                <li class="category-item">
+                                    <a href="#" class="category-link">Backend Development</a>
+                                </li>
+                                <li class="category-item">
+                                    <a href="#" class="category-link">DevOps & Deployment</a>
+                                </li>
+                                <li class="category-item">
+                                    <a href="#" class="category-link">Mobile Development</a>
+                                </li>
+                                <li class="category-item">
+                                    <a href="#" class="category-link">Database & Data</a>
+                                </li>
+                                <li class="category-item">
+                                    <a href="#" class="category-link">Career & Learning</a>
+                                </li>
+                                <li class="category-item">
+                                    <a href="#" class="category-link">Tools & Resources</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Recent Posts -->
+                        <div class="sidebar-section">
+                            <h3 class="sidebar-title">Recent Posts</h3>
+                            <div class="recent-post">
+                                <div class="recent-post-image">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <div class="recent-post-content">
+                                    <a href="#" class="recent-post-title">Clean Code Principles Every Developer Should Know</a>
+                                    <div class="recent-post-date">January 3, 2025</div>
+                                </div>
+                            </div>
+                            <div class="recent-post">
+                                <div class="recent-post-image">
+                                    <i class="fas fa-cloud"></i>
+                                </div>
+                                <div class="recent-post-content">
+                                    <a href="#" class="recent-post-title">Getting Started with AWS for Beginners</a>
+                                    <div class="recent-post-date">January 1, 2025</div>
+                                </div>
+                            </div>
+                            <div class="recent-post">
+                                <div class="recent-post-image">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <div class="recent-post-content">
+                                    <a href="#" class="recent-post-title">Web Security Best Practices for 2025</a>
+                                    <div class="recent-post-date">December 29, 2024</div>
+                                </div>
+                            </div>
+                            <div class="recent-post">
+                                <div class="recent-post-image">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                                <div class="recent-post-content">
+                                    <a href="#" class="recent-post-title">Performance Optimization Techniques</a>
+                                    <div class="recent-post-date">December 27, 2024</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Newsletter -->
+                        <div class="sidebar-section">
+                            <h3 class="sidebar-title">Newsletter</h3>
+                            <p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1rem;">
+                                Subscribe to get weekly updates on the latest programming trends and tutorials.
+                            </p>
+                            <form>
+                                <input type="email" class="search-input" placeholder="Enter your email" style="margin-bottom: 1rem;">
+                                <button type="submit" class="cta-button" style="width: 100%; padding: 0.75rem;">
+                                    Subscribe
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="row">
+                    <div class="col-lg-4 mb-4">
+                        <h5>SyntaxMaestro</h5>
+                        <p>Empowering the next generation of developers through mentorship, tools, and community.</p>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <h5>Quick Links</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="index.html" class="text-light">Home</a></li>
+                            <li><a href="services.html" class="text-light">Services</a></li>
+                            <li><a href="the_maestro_CV.html" class="text-light">About developer</a></li>
+                            <li><a href="comming_soon.html" class="text-light">Team</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <h5>Contact Info</h5>
+                        <p><i class="fas fa-envelope me-2"></i> ellaban285@gmail.com</p>
+                        <p><i class="fas fa-map-marker-alt me-2"></i> Port Said, Egypt</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SyntaxMaestro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.15)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // Animate on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Blog post hover effects
+        document.querySelectorAll('.blog-post').forEach(post => {
+            post.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+                this.style.boxShadow = '0 20px 60px rgba(37, 99, 235, 0.15)';
+            });
+            
+            post.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '0 10px 40px rgba(0, 0, 0, 0.1)';
+            });
+        });
+
+        // Search functionality
+        document.querySelector('.search-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                // Add search functionality here
+                console.log('Searching for:', this.value);
+            }
+        });
+
+        document.querySelector('.search-btn').addEventListener('click', function() {
+            const searchTerm = document.querySelector('.search-input').value;
+            // Add search functionality here
+            console.log('Searching for:', searchTerm);
+        });
+
+        // Category filtering
+        document.querySelectorAll('.category-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                // Add category filtering functionality here
+                console.log('Filtering by category:', this.textContent);
+            });
+        });
+
+        // Newsletter subscription
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            // Add newsletter subscription functionality here
+            console.log('Subscribing email:', email);
+            alert('Thank you for subscribing to our newsletter!');
+        });
+
+        // Pagination
+        document.querySelectorAll('.page-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                // Remove active class from all links
+                document.querySelectorAll('.page-link').forEach(l => l.classList.remove('active'));
+                // Add active class to clicked link (if it's not a navigation arrow)
+                if (!this.innerHTML.includes('chevron')) {
+                    this.classList.add('active');
+                }
+                // Add pagination functionality here
+                console.log('Loading page:', this.textContent);
+            });
+        });
+    </script>
+</body>
+</html>

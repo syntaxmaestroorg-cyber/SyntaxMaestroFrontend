@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+    <link rel="manifest" href="images/site.webmanifest" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SyntaxMaestro - Empowering Future Developers</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.4/vue.global.prod.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+    <a class="navbar-brand" href="#">
+        <img src="images/dark-logo.png" alt="dark-logo" style="width: 50px; height: 50px; margin-right: 10px;">
+        SyntaxMaestro
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="the_maestro_CV.html">The Maestro</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+                <div class="text-center mb-4">
+                    <img src="images/logo.png" alt="logo" style="width: 200px; height: 200px;">
+                </div>            
+                <div class="hero-content">
+                <h1 class="hero-title">Empowering Future Developers</h1>
+                <p class="hero-subtitle">Master the art of coding with expert mentorship, cutting-edge tools, and a vibrant community of passionate developers.</p>
+                <a href="#services" class="btn cta-button">Start Exploring</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted By Section -->
+    <section class="trusted-by">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h3 class="mb-4 text-muted">Trusted by developers using</h3>
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col-2 col-md-1 text-center">
+                            <i class="fab fa-python tech-icon python-icon"></i>
+                        </div>
+                        <div class="col-2 col-md-1 text-center">
+                            <i class="fab fa-js-square tech-icon js-icon"></i>
+                        </div>
+                        <div class="col-2 col-md-1 text-center">
+                            <i class="fab fa-vuejs tech-icon vue-icon"></i>
+                        </div>
+                        <div class="col-2 col-md-1 text-center">
+                            <i class="fab fa-github tech-icon github-icon"></i>
+                        </div>
+                        <div class="col-2 col-md-1 text-center">
+                            <i class="fab fa-docker tech-icon docker-icon"></i>
+                        </div>
+                        <div class="col-2 col-md-1 text-center">
+                            <i class="fab fa-react tech-icon" style="color: #61dafb;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Do Section -->
+    <section id="services" class="what-we-do">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">What We Do</h2>
+            <p class="section-subtitle animate-on-scroll">We provide comprehensive solutions to help you excel in your development journey</p>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card animate-on-scroll">
+                        <div class="service-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3 class="service-title">Expert Mentorship</h3>
+                        <p class="service-description">Get personalized guidance from industry experts who have worked at top tech companies. Our mentors provide one-on-one sessions, code reviews, and career advice tailored to your goals.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card animate-on-scroll">
+                        <div class="service-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3 class="service-title">Development Tools</h3>
+                        <p class="service-description">Access cutting-edge development tools and resources that streamline your workflow. From code editors to deployment platforms, we provide everything you need to build amazing applications.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card animate-on-scroll">
+                        <div class="service-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="service-title">Developer Community</h3>
+                        <p class="service-description">Join a vibrant community of passionate developers. Share knowledge, collaborate on projects, and grow together through hackathons, workshops, and networking events.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Intro Section -->
+    <section id="about" class="quick-intro">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="intro-image animate-on-scroll">
+                        <i class="fas fa-code"></i>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="intro-title animate-on-scroll">Meet SyntaxMaestro</h2>
+                    <p class="intro-text animate-on-scroll">We're a passionate team of developers and educators dedicated to transforming the way people learn to code. With over 50 successful graduates now working at top tech companies, we've proven that the right mentorship and community can accelerate your programming journey.</p>
+                    <ul class="feature-list animate-on-scroll">
+                        <li class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Personalized learning paths for every skill level</span>
+                        </li>
+                        <li class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Real-world projects and hands-on experience</span>
+                        </li>
+                        <li class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>24/7 community support and collaboration</span>
+                        </li>
+                        <li class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Industry connections and job placement assistance</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team-section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Meet Our Team</h2>
+            <p class="section-subtitle animate-on-scroll">The brilliant minds behind SyntaxMaestro</p>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="team-card animate-on-scroll">
+                        <div class="team-avatar">
+                            AS
+                        </div>
+                        <h3 class="team-name">Alex Smith</h3>
+                        <p class="team-role">Lead Developer & Founder</p>
+                        <p class="team-bio">Full-stack developer with 8+ years at Google and Microsoft. Passionate about teaching clean code and scalable architecture.</p>
+                        <div class="team-social">
+                            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="team-card animate-on-scroll">
+                        <div class="team-avatar">
+                            MJ
+                        </div>
+                        <h3 class="team-name">Maria Johnson</h3>
+                        <p class="team-role">Senior Frontend Developer</p>
+                        <p class="team-bio">React and Vue.js specialist with a background in UX design. Helps developers create beautiful, user-friendly interfaces.</p>
+                        <div class="team-social">
+                            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="team-card animate-on-scroll">
+                        <div class="team-avatar">
+                            DC
+                        </div>
+                        <h3 class="team-name">David Chen</h3>
+                        <p class="team-role">Backend Architect</p>
+                        <p class="team-bio">Database and API expert with experience in Python, Node.js, and cloud technologies. Mentors on system design and scalability.</p>
+                        <div class="team-social">
+                            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-stack-overflow"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- chatbot -->
+    <div id="app">
+        <!-- Chatbot Button -->
+        <button class="chatbot-button" @click="openChat">
+            <span class="chat-icon">🤖</span>
+        </button>
+
+        <!-- Chat Popup -->
+        <div class="chat-overlay" :class="{ active: showChat }" @click="closeChat">
+            <div class="chat-popup" @click.stop>
+                <div class="chat-header">
+                    <h3>Chat Assistant</h3>
+                    <button class="close-btn" @click="closeChat">&times;</button>
+                </div>
+                
+                <div class="chat-messages" ref="messagesContainer">
+                    <div v-for="message in messages" :key="message.id" :class="['message', message.type]">
+                        <div class="message-avatar">
+                            {{ message.type === 'bot' ? '🤖' : '👤' }}
+                        </div>
+                        <div class="message-bubble">
+                            {{ message.text }}
+                        </div>
+                    </div>
+                    
+                    <div v-if="isTyping" class="typing-indicator">
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                    </div>
+                </div>
+                
+                <div class="chat-input">
+                    <input 
+                        type="text" 
+                        v-model="newMessage" 
+                        @keypress.enter="sendMessage"
+                        placeholder="Type your message..."
+                        :disabled="isTyping"
+                    >
+                    <button class="send-btn" @click="sendMessage" :disabled="isTyping || !newMessage.trim()">
+                        ➤
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end-chatbot -->
+
+    <!-- CTA Section -->
+    <section id="contact" class="cta-section">
+        <div class="container">
+            <h2 class="cta-title animate-on-scroll">Ready to Start Your Journey?</h2>
+            <p class="cta-text animate-on-scroll">Join thousands of developers who have transformed their careers with SyntaxMaestro</p>
+            <a href="#" class="btn cta-button-secondary animate-on-scroll">Get In Touch</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="row">
+                    <div class="col-lg-4 mb-4">
+                        <h5>SyntaxMaestro</h5>
+                        <p>Empowering the next generation of developers through mentorship, tools, and community.</p>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <h5>Quick Links</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="index.html" class="text-light">Home</a></li>
+                            <li><a href="services.html" class="text-light">Services</a></li>
+                            <li><a href="the_maestro_CV.html" class="text-light">About developer</a></li>
+                            <li><a href="comming_soon.html" class="text-light">Team</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <h5>Contact Info</h5>
+                        <p><i class="fas fa-envelope me-2"></i> ellaban285@gmail.com</p>
+                        <p><i class="fas fa-map-marker-alt me-2"></i> Port Said, Egypt</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SyntaxMaestro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.15)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // Animate on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add some interactive hover effects
+        document.querySelectorAll('.service-card, .team-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Tech icons animation
+        document.querySelectorAll('.tech-icon').forEach(icon => {
+            icon.addEventListener('mouseenter', function() {
+                this.style.animation = 'pulse 0.5s ease-in-out';
+            });
+            
+            icon.addEventListener('animationend', function() {
+                this.style.animation = '';
+            });
+        });
+
+        // Add pulse animation keyframes
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes pulse {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.1); }
+                100% { transform: scale(1); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+     <!-- <script>
+        const { createApp } = Vue;
+
+        createApp({
+            data() {
+                return {
+                    showChat: false,
+                    newMessage: '',
+                    isTyping: false,
+                    messages: [
+                        {
+                            id: 1,
+                            type: 'bot',
+                            text: 'Hello! How can I help you today?'
+                        }
+                    ]
+                    // You can add these if needed for your backend
+                    // conversationId: null,
+                    // userId: null
+                }
+            },
+            methods: {
+                openChat() {
+                    this.showChat = true;
+                    this.$nextTick(() => {
+                        this.scrollToBottom();
+                    });
+                },
+                closeChat() {
+                    this.showChat = false;
+                },
+                async sendMessage() {
+                    if (!this.newMessage.trim() || this.isTyping) return;
+                    
+                    const userMessage = {
+                        id: Date.now(),
+                        type: 'user',
+                        text: this.newMessage
+                    };
+                    
+                    this.messages.push(userMessage);
+                    const messageText = this.newMessage;
+                    this.newMessage = '';
+                    this.scrollToBottom();
+                    
+                    // Show typing indicator
+                    this.isTyping = true;
+                    
+                    try {
+                        // Call your backend API
+                        const response = await this.getAIResponse(messageText);
+                        
+                        this.isTyping = false;
+                        const botResponse = {
+                            id: Date.now() + 1,
+                            type: 'bot',
+                            text: response
+                        };
+                        this.messages.push(botResponse);
+                        this.scrollToBottom();
+                    } catch (error) {
+                        console.error('Error getting AI response:', error);
+                        this.isTyping = false;
+                        const errorResponse = {
+                            id: Date.now() + 1,
+                            type: 'bot',
+                            text: 'Sorry, I encountered an error. Please try again.'
+                        };
+                        this.messages.push(errorResponse);
+                        this.scrollToBottom();
+                    }
+                },
+                async getAIResponse(message) {
+                    // Replace with your actual backend URL
+                    const API_URL = 'http://localhost:8000/api/chat'; // FastAPI
+                    // const API_URL = 'http://localhost:8000/chat/'; // Django
+                    
+                    const response = await fetch(API_URL, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            message: message,
+                            // Add any additional data you want to send
+                            // conversation_id: this.conversationId,
+                            // user_id: this.userId
+                        })
+                    });
+                    
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    
+                    const data = await response.json();
+                    
+                    // Adjust based on your backend response structure
+                    return data.response || data.message || data.reply;
+                },
+                scrollToBottom() {
+                    this.$nextTick(() => {
+                        if (this.$refs.messagesContainer) {
+                            this.$refs.messagesContainer.scrollTop = this.$refs.messagesContainer.scrollHeight;
+                        }
+                    });
+                }
+            }
+        }).mount('#app');
+    </script> -->
+
+    <script>
+        const { createApp } = Vue;
+
+createApp({
+    data() {
+        return {
+            showChat: false,
+            newMessage: '',
+            isTyping: false,
+            messages: [
+                {
+                    id: 1,
+                    type: 'bot',
+                    text: 'Hello! How can I help you today?'
+                }
+            ]
+            // You can add these if needed for your backend
+            // conversationId: null,
+            // userId: null
+        }
+    },
+    methods: {
+        openChat() {
+            this.showChat = true;
+            this.$nextTick(() => {
+                this.scrollToBottom();
+            });
+        },
+        closeChat() {
+            this.showChat = false;
+        },
+        async sendMessage() {
+            if (!this.newMessage.trim() || this.isTyping) return;
+            
+            const userMessage = {
+                id: Date.now(),
+                type: 'user',
+                text: this.newMessage
+            };
+            
+            this.messages.push(userMessage);
+            const messageText = this.newMessage;
+            this.newMessage = '';
+            this.scrollToBottom();
+            
+            // Show typing indicator
+            this.isTyping = true;
+            
+            try {
+                // Call your Django backend API
+                const response = await this.getAIResponse(messageText);
+                
+                this.isTyping = false;
+                const botResponse = {
+                    id: Date.now() + 1,
+                    type: 'bot',
+                    text: response
+                };
+                this.messages.push(botResponse);
+                this.scrollToBottom();
+            } catch (error) {
+                console.error('Error getting AI response:', error);
+                this.isTyping = false;
+                const errorResponse = {
+                    id: Date.now() + 1,
+                    type: 'bot',
+                    text: 'Sorry, I encountered an error. Please try again.'
+                };
+                this.messages.push(errorResponse);
+                this.scrollToBottom();
+            }
+        },
+        async getAIResponse(message) {
+            // Your Django endpoint
+            const API_URL = 'http://127.0.0.1:8000/chatbot/chat/';
+            
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': this.getCSRFToken(), // Django CSRF protection
+                    },
+                    body: JSON.stringify({
+                        message: message,
+                        // Add any additional data you want to send
+                        // conversation_id: this.conversationId,
+                        // user_id: this.userId
+                    })
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                
+                // Adjust based on your Django backend response structure
+                // Common Django response patterns:
+                return data.response || data.message || data.reply || data.answer;
+                
+            } catch (error) {
+                console.error('API Error:', error);
+                throw error;
+            }
+        },
+        getCSRFToken() {
+            // Get CSRF token from Django
+            const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]')?.value;
+            if (csrfToken) {
+                return csrfToken;
+            }
+            
+            // Alternative: get from cookies
+            const cookies = document.cookie.split(';');
+            for (let cookie of cookies) {
+                const [name, value] = cookie.trim().split('=');
+                if (name === 'csrftoken') {
+                    return value;
+                }
+            }
+            
+            // If no CSRF token found, you might need to disable CSRF for this endpoint
+            // or implement proper CSRF handling in your Django view
+            return '';
+        },
+        scrollToBottom() {
+            this.$nextTick(() => {
+                if (this.$refs.messagesContainer) {
+                    this.$refs.messagesContainer.scrollTop = this.$refs.messagesContainer.scrollHeight;
+                }
+            });
+        }
+    }
+}).mount('#app');
+    </script>
+</body>
+</html>
